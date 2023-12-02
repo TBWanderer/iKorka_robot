@@ -1,4 +1,4 @@
-##[pylyzer] failed /home/x/coding/iKorka_robot/src/handlers/start.py 1701111653 224
+##[pylyzer] failed /home/x/coding/iKorka_robot/src/handlers/start.py 1701525741 320
 .___v_desugar_1 = pyimport "aiogram"
 .Router: Never
 .F: Never
@@ -6,5 +6,7 @@
 .Command: Never
 .___v_desugar_3 = pyimport "aiogram/types"
 .Message: Never
+.messages = pyimport "messages"
+
 .router: Never
 

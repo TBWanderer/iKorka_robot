@@ -1,7 +1,7 @@
 from aiogram import Router, F
 from aiogram.filters import Command
 from aiogram.types import Message
-import messages
+from messages import NON_PRIVATE_START_MESSAGE
 
 router = Router()
 
@@ -11,4 +11,4 @@ async def start_handler(msg: Message):
     if msg.chat.type != "private":
         await msg.answer("Yes, sir!")
     else:
-        await msg.answer()
+        await msg.answer(NON_PRIVATE_START_MESSAGE)

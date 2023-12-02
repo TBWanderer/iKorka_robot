@@ -2,7 +2,7 @@ print("[INFO]: Importing modules...")
 
 import asyncio, time
 from aiogram import Bot, Dispatcher
-from handlers import start
+from handlers import basic
 
 print("[INFO]: Modules imported successfuly!")
 
@@ -16,12 +16,12 @@ def xor(plain_text: bytes, key: bytes):
     return bytes(encoded)
 
 
-key = bytes(input("[REQUEST]: Enter key to decrypt token: "), 'utf-8')
+key = bytes(input("[REQUEST]: Enter key to decrypt token: "), 'utf-8') # getting key to encrypt token
 
 BOT_TOKEN = ""
 
 try:
-    BOT_TOKEN = xor(open("src/config.dat", "rb").read(), key).decode('utf-8')
+    BOT_TOKEN = xor(open("src/config.dat", "rb").read(), key).decode('utf-8') # getting bot token
 except Exception:
     print("[ERROR]: Key is incorrect!")
 
@@ -32,31 +32,31 @@ except Exception:
 async def main():
     print("[INFO]: Bot init...")
     try:
-        bot = Bot(token=BOT_TOKEN)
+        bot = Bot(token=BOT_TOKEN, parse_mode='HTML')
 
         print("[INFO]: Key is correct!")
 
         time.sleep(0.1)
 
         print("[INFO]: Setting dispatcher...")
-        dp = Dispatcher()
+        dp = Dispatcher() # setting dispatcher
         print("[INFO]: Dispatcher set successfuly!")
 
         time.sleep(0.1)
 
         print("[INFO]: Including routers...")
-        dp.include_routers(start.router)
+        dp.include_routers(basic.router) # including routers
         print("[INFO]: Routers included succesfuly!")
 
         time.sleep(0.1)
 
         print("[INFO]: Deleting webhooks...")
-        await bot.delete_webhook(drop_pending_updates=True)
+        await bot.delete_webhook(drop_pending_updates=True) # deleting webhooks
         print("[INFO]: Webhooks deleted successfuly!")
 
         time.sleep(0.1)
 
-        print("[INFO]: Starting bot...")
+        print("[INFO]: Starting bot...") # strating bot
         await dp.start_polling(bot)
 
         print("[INFO]: Deactivation bot...")

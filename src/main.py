@@ -1,7 +1,7 @@
 import asyncio
 from aiogram import Bot, Dispatcher
 from handlers import start
-import cofigparser
+
 
 # Запуск бота
 async def main():

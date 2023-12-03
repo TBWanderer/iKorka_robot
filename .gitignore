@@ -1,3 +1,4 @@
 src/config.dat
 .direnv
 .envrc
+.nvim

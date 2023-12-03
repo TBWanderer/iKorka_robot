@@ -2,7 +2,7 @@ print("[INFO]: Importing modules...")
 
 import asyncio, time
 from aiogram import Bot, Dispatcher
-from handlers import basic
+from handlers import basic, text
 
 print("[INFO]: Modules imported successfuly!")
 
@@ -45,7 +45,7 @@ async def main():
         time.sleep(0.1)
 
         print("[INFO]: Including routers...")
-        dp.include_routers(basic.router) # including routers
+        dp.include_routers(basic.router, text.router) # including routers
         print("[INFO]: Routers included succesfuly!")
 
         time.sleep(0.1)
